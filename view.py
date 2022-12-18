@@ -1,7 +1,7 @@
-def input_number() -> int:
+def input_number():
     while True:
         try:
-            number = int(input('Введите целое число: '))
+            number = input('Введите целое число или выражение через пробел: ')
             return number
         except:
             print('Ошибка')
@@ -26,6 +26,3 @@ def log_off():
 
 def print_division_by_zero():
     print('На ноль делить нельзя!')
-
-
-
