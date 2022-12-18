@@ -4,12 +4,16 @@ import parser                                               # Подключен
 
 def input_first():                                          # Получение и присвоение значения первому числу
     number = view.input_number()
-    model.set_first(number)
-
+    if number.isdigit():
+        number = int(number)
+        model.set_first(number)
+    else:
+        model.set_expression(number)
+        parser.parser(number)
 
 def input_second():                                         # Получение и присвоение значения второму числу
     while True:
-        number = view.input_number()
+        number = int(view.input_number())
         if model.get_operation() == '/' and number == 0:    # проверка деления на ноль
             view.print_division_by_zero()
         else:
@@ -41,16 +45,11 @@ def solution():                                             # Метод для 
 
 def start():                                               # Калькулятор (старт с обработчиком "=")
     input_first()
-    while True:
-        input_operation()
-        if model.get_operation() == '=':
-            view.log_off()
-            break
-        input_second()
-        solution()
-
-
-
-
-
-
+    if not model.get_exression():
+        while True:
+            input_operation()
+            if model.get_operation() == '=':
+                view.log_off()
+                break
+            input_second()
+            solution()
