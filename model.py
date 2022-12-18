@@ -2,7 +2,7 @@ first_number = 0
 second_number = 0
 operation = ''
 result = 0
-
+expression = ''
 
 def get_first():                        # отсюда и ниже - геттеры  для чисел, операций и результата
     global first_number
@@ -23,11 +23,17 @@ def get_result():
     global result
     return result
 
+def get_exression():
+    global expression
+    return expression
 
 def set_first(value):                   # отсюда и ниже - cеттеры для чисел и операций
     global first_number
     first_number = value
 
+def set_expression(exp):
+    global expression
+    expression = exp
 
 def set_second(value):
     global second_number
